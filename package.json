@@ -1,6 +1,6 @@
 {
   "name": "@runmu.sh/ext-activity",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A live staff feed of player texts, LOOC and NPC actions, with filters, watches and pause.",
   "type": "module",
   "exports": "./dist/index.js",

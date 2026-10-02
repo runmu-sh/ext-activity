@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.1
+
+- Installed or enabled mid-session: a `Client.Activity.Role` that arrived before activation now adds the panel. The role was read before the panel was registered, so its `panels.touch` did nothing; the panel is touched again once registered. Has a regression test.
+
 ## 1.0.0
 
 - First release: the Activity panel for staff. It shows a live feed of player texts, LOOC and NPC actions, with each event's time, kind, who, to whom, the text and the place.

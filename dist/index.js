@@ -926,6 +926,7 @@ var index_default = defineExtension({
       }
     });
     mu.commands.register({ id: `${ID}.open`, title: C.openCommand, run: () => mu.panels.open(ID) });
+    for (const [sid2, s] of sessions) if (s.identity) mu.panels.touch(ID, sid2);
     const sidOr = (sid2) => sid2 ?? mu.sessions.active()?.id ?? "";
     const api = (caller) => ({
       open: () => mu.panels.open(ID),

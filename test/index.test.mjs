@@ -67,6 +67,19 @@ test('registers the panel (auto, staff role), the command and the API', async ()
   assert.deepEqual(host.calls.find((c) => c.path === 'panels.open').args[0], 'activity');
 });
 
+test('a Role that arrived before activation touches the panel after it is registered (mid-session install)', async () => {
+  const host = createHost({ root: ROOT });
+  host.gmcp('s1', 'Client.Activity.Role', { allowed: true, can_puppet: true });
+  const touchAfterRegister = [];
+  await host.load({ activate: (ctx) => {
+    const mu = ctx.mu; let registered = false;
+    const wrapped = new Proxy(mu, { get: (t, k) => k !== 'panels' ? t[k] : new Proxy(t.panels, { get: (p, m) => m === 'register' ? (spec) => { registered = true; return p.register(spec); } : m === 'touch' ? (id, sid) => { touchAfterRegister.push(registered); return p.touch(id, sid); } : p[m] }) });
+    return def.activate(new Proxy(ctx, { get: (c, k) => (k === 'mu' ? wrapped : c[k]) }));
+  } });
+  assert.deepEqual(host.sessions[0].roles, ['activity']);
+  assert.ok(touchAfterRegister.includes(true), `touched after register: ${JSON.stringify(touchAfterRegister)}`);
+});
+
 test('Role allowed gives the session the activity role and touches the panel; not allowed takes it away', async () => {
   const { host, ext } = await start();
   assert.deepEqual(host.sessions[0].roles, []);

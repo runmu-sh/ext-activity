@@ -202,6 +202,9 @@ export default defineExtension({
       restore: (el, saved) => { if (saved) mounted.get(el)?.restore(saved as PanelSnap); },
     });
     mu.commands.register({ id: `${ID}.open`, title: C.openCommand, run: () => mu.panels.open(ID) });
+    // A role that arrived before the panel was registered (the game sent it before this extension activated):
+    // its `touch` was a no-op then, so touch again now that the panel exists.
+    for (const [sid, s] of sessions) if (s.identity) mu.panels.touch(ID, sid);
 
     // ── the API (per caller) ──
     const sidOr = (sid?: string) => sid ?? mu.sessions.active()?.id ?? '';
