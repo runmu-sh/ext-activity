@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Activity.Error",
+  "type": "object",
+  "required": [
+    "message"
+  ],
+  "properties": {
+    "req": {
+      "type": "number"
+    },
+    "message": {
+      "type": "string"
+    }
+  },
+  "$defs": {}
+}

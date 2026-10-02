@@ -1,0 +1,41 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Activity.Results",
+  "type": "object",
+  "required": [
+    "results"
+  ],
+  "properties": {
+    "req": {
+      "type": "number"
+    },
+    "query": {
+      "type": "string"
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "name"
+        ],
+        "properties": {
+          "id": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "$defs": {}
+}

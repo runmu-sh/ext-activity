@@ -1,0 +1,233 @@
+{
+  "format": "murec",
+  "version": 1,
+  "started": "2026-01-01T00:00:00.000Z",
+  "duration": 900,
+  "redacted": {
+    "char": true,
+    "loginPackages": true,
+    "credentials": true
+  },
+  "events": [
+    {
+      "t": 0,
+      "seq": 1,
+      "k": "line",
+      "text": "Welcome back, Ada.",
+      "kind": "output"
+    },
+    {
+      "t": 20,
+      "seq": 2,
+      "k": "gmcp",
+      "pkg": "Client.Activity.Role",
+      "data": {
+        "allowed": true,
+        "can_puppet": true
+      }
+    },
+    {
+      "t": 40,
+      "seq": 3,
+      "k": "gmcp.out",
+      "pkg": "Client.Activity.Subscribe",
+      "data": {
+        "req": 1
+      }
+    },
+    {
+      "t": 60,
+      "seq": 4,
+      "k": "gmcp",
+      "pkg": "Client.Activity.Snapshot",
+      "data": {
+        "req": 1,
+        "role": {
+          "allowed": true,
+          "can_puppet": true
+        },
+        "stream_id": "st-2026-01",
+        "last_seq": 4,
+        "events": [
+          {
+            "id": "ev-1",
+            "seq": 1,
+            "ts_ms": 1767225661000,
+            "kind": "handset.sms",
+            "body": "Meet me by the fountain after the bell.",
+            "actor": {
+              "id": "#120",
+              "kind": "character",
+              "name": "Ada Vell"
+            },
+            "targets": [
+              {
+                "id": "#121",
+                "kind": "character",
+                "name": "Bo Harrow"
+              }
+            ],
+            "npc_targets": [],
+            "location": {
+              "id": "#300",
+              "kind": "location",
+              "name": "The Lantern Market"
+            },
+            "meta": {}
+          },
+          {
+            "id": "ev-2",
+            "seq": 2,
+            "ts_ms": 1767225722000,
+            "kind": "looc",
+            "body": "brb, getting coffee",
+            "actor": {
+              "id": "#121",
+              "kind": "character",
+              "name": "Bo Harrow"
+            },
+            "targets": [],
+            "npc_targets": [],
+            "location": {
+              "id": "#300",
+              "kind": "location",
+              "name": "The Lantern Market"
+            },
+            "meta": {}
+          },
+          {
+            "id": "ev-3",
+            "seq": 3,
+            "ts_ms": 1767225783000,
+            "kind": "npc.action",
+            "body": "Sister Wren folds her hands and waits for an answer.",
+            "actor": {
+              "id": "#122",
+              "kind": "character",
+              "name": "Cyprian"
+            },
+            "targets": [],
+            "npc_targets": [
+              {
+                "id": "#901",
+                "kind": "npc",
+                "name": "Sister Wren"
+              }
+            ],
+            "location": {
+              "id": "#300",
+              "kind": "location",
+              "name": "The Lantern Market"
+            },
+            "meta": {}
+          },
+          {
+            "id": "ev-4",
+            "seq": 4,
+            "ts_ms": 1767225844000,
+            "kind": "handset.group",
+            "body": "Shift change at the mill. Bring lamps.",
+            "actor": {
+              "id": "#120",
+              "kind": "character",
+              "name": "Ada Vell"
+            },
+            "targets": [],
+            "npc_targets": [],
+            "location": {
+              "id": "#301",
+              "kind": "location",
+              "name": "Old Mill"
+            },
+            "meta": {
+              "group_name": "Night Shift"
+            }
+          }
+        ],
+        "watches": {
+          "characters": [
+            {
+              "id": "#901",
+              "label": "Sister Wren"
+            }
+          ],
+          "locations": []
+        }
+      }
+    },
+    {
+      "t": 900,
+      "seq": 5,
+      "k": "gmcp",
+      "pkg": "Client.Activity.Batch",
+      "data": {
+        "stream_id": "st-2026-01",
+        "last_seq": 6,
+        "events": [
+          {
+            "id": "ev-5",
+            "seq": 5,
+            "ts_ms": 1767225905000,
+            "kind": "npc.action",
+            "body": "The ferryman pushes off from the pier; a gull screams overhead.",
+            "actor": {
+              "id": "#121",
+              "kind": "character",
+              "name": "Bo Harrow"
+            },
+            "targets": [],
+            "npc_targets": [
+              {
+                "id": "#902",
+                "kind": "npc",
+                "name": "the ferryman"
+              },
+              {
+                "id": "#903",
+                "kind": "npc",
+                "name": "a dock gull"
+              }
+            ],
+            "location": {
+              "id": "#302",
+              "kind": "location",
+              "name": "South Pier"
+            },
+            "meta": {}
+          },
+          {
+            "id": "ev-6",
+            "seq": 6,
+            "ts_ms": 1767225966000,
+            "kind": "handset.sms",
+            "body": "Did you see who took the crate?",
+            "actor": {
+              "id": "#122",
+              "kind": "character",
+              "name": "Cyprian"
+            },
+            "targets": [
+              {
+                "id": "#120",
+                "kind": "character",
+                "name": "Ada Vell"
+              },
+              {
+                "id": "#121",
+                "kind": "character",
+                "name": "Bo Harrow"
+              }
+            ],
+            "npc_targets": [],
+            "location": {
+              "id": "#300",
+              "kind": "location",
+              "name": "The Lantern Market"
+            },
+            "meta": {}
+          }
+        ]
+      }
+    }
+  ]
+}

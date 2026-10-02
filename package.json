@@ -1,0 +1,133 @@
+{
+  "name": "@runmu.sh/ext-activity",
+  "version": "1.0.0",
+  "description": "A live staff feed of player texts, LOOC and NPC actions, with filters, watches and pause.",
+  "type": "module",
+  "exports": "./dist/index.js",
+  "files": [
+    "dist",
+    "schema",
+    "src/types.ts",
+    "README.md",
+    "CHANGELOG.md"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/dev.mjs",
+    "typecheck": "tsc --noEmit",
+    "check": "node scripts/build.mjs --check",
+    "test": "node --test test/*.test.mjs"
+  },
+  "devDependencies": {
+    "@muclient/sdk": "npm:@runmu.sh/sdk@^1.12.0",
+    "@runmu.sh/dev": "^0.2.0",
+    "esbuild": "^0.28.2",
+    "happy-dom": "^20.14.5",
+    "typescript": "^5.9.0"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "muclient": {
+    "id": "activity",
+    "api": "^1.12",
+    "source": "src/index.ts",
+    "displayName": "Activity",
+    "description": "A live staff feed of player texts, LOOC and NPC actions, with filters, watches and pause.",
+    "contributes": {
+      "panels": [
+        {
+          "id": "activity",
+          "title": "Activity"
+        }
+      ],
+      "commands": [
+        {
+          "id": "activity.open",
+          "title": "Activity: open the panel"
+        }
+      ],
+      "gmcp": [
+        {
+          "package": "Client.Activity 1",
+          "messages": {
+            "Client.Activity.Role": {
+              "dir": "in",
+              "schema": "schema/role.json"
+            },
+            "Client.Activity.Snapshot": {
+              "dir": "in",
+              "schema": "schema/snapshot.json"
+            },
+            "Client.Activity.Batch": {
+              "dir": "in",
+              "schema": "schema/batch.json"
+            },
+            "Client.Activity.Results": {
+              "dir": "in",
+              "schema": "schema/results.json"
+            },
+            "Client.Activity.Watches": {
+              "dir": "in",
+              "schema": "schema/watches.json"
+            },
+            "Client.Activity.Error": {
+              "dir": "in",
+              "schema": "schema/error.json"
+            },
+            "Client.Activity.Subscribe": {
+              "dir": "out",
+              "schema": "schema/subscribe.json"
+            },
+            "Client.Activity.Unsubscribe": {
+              "dir": "out",
+              "schema": "schema/subscribe.json"
+            },
+            "Client.Activity.Search": {
+              "dir": "out",
+              "schema": "schema/search.json"
+            },
+            "Client.Activity.Watch": {
+              "dir": "out",
+              "schema": "schema/watch.json"
+            },
+            "Client.Activity.Unwatch": {
+              "dir": "out",
+              "schema": "schema/watch.json"
+            }
+          }
+        },
+        {
+          "package": "Client.Puppets 1",
+          "messages": {
+            "Client.Puppets.Add": {
+              "dir": "out",
+              "schema": "schema/puppets-add.json"
+            },
+            "Client.Puppets.Manifest": {
+              "dir": "in",
+              "schema": "schema/puppets-manifest.json"
+            }
+          }
+        }
+      ]
+    },
+    "capabilities": [
+      "send-commands"
+    ],
+    "publisher": "bitmuse"
+  },
+  "types": "./src/types.ts",
+  "keywords": [
+    "muclient",
+    "muclient-extension",
+    "gmcp",
+    "staff",
+    "activity"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/runmu-sh/ext-activity.git"
+  }
+}

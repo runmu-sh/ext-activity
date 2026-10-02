@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Activity.Watch / Unwatch",
+  "type": "object",
+  "required": [
+    "id",
+    "kind"
+  ],
+  "properties": {
+    "req": {
+      "type": "number"
+    },
+    "id": {
+      "type": [
+        "string",
+        "number"
+      ]
+    },
+    "kind": {
+      "enum": [
+        "characters",
+        "locations"
+      ]
+    }
+  },
+  "$defs": {}
+}

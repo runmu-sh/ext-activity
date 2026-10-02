@@ -1,0 +1,165 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Activity.Snapshot",
+  "type": "object",
+  "required": [
+    "stream_id",
+    "last_seq",
+    "events"
+  ],
+  "properties": {
+    "req": {
+      "type": "number"
+    },
+    "stream_id": {
+      "type": "string"
+    },
+    "last_seq": {
+      "type": "number"
+    },
+    "events": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/event"
+      }
+    },
+    "role": {
+      "$ref": "#/$defs/role"
+    },
+    "watches": {
+      "$ref": "#/$defs/watches"
+    }
+  },
+  "$defs": {
+    "ref": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "kind": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      }
+    },
+    "event": {
+      "type": "object",
+      "required": [
+        "id",
+        "seq",
+        "kind"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "seq": {
+          "type": "number"
+        },
+        "ts_ms": {
+          "type": "number"
+        },
+        "kind": {
+          "type": "string"
+        },
+        "body": {
+          "type": "string"
+        },
+        "actor": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "$ref": "#/$defs/ref"
+        },
+        "targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "npc_targets": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/ref"
+          }
+        },
+        "location": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "$ref": "#/$defs/ref"
+        },
+        "meta": {
+          "type": "object",
+          "properties": {
+            "group_name": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "item": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "watches": {
+      "type": "object",
+      "properties": {
+        "characters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/item"
+          }
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/item"
+          }
+        }
+      }
+    },
+    "role": {
+      "type": "object",
+      "required": [
+        "allowed"
+      ],
+      "properties": {
+        "allowed": {
+          "type": "boolean"
+        },
+        "can_puppet": {
+          "type": "boolean"
+        }
+      }
+    }
+  }
+}

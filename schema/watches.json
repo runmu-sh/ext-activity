@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Activity.Watches",
+  "type": "object",
+  "required": [
+    "watches"
+  ],
+  "properties": {
+    "req": {
+      "type": "number"
+    },
+    "watches": {
+      "$ref": "#/$defs/watches"
+    }
+  },
+  "$defs": {
+    "item": {
+      "type": "object",
+      "required": [
+        "id"
+      ],
+      "properties": {
+        "id": {
+          "type": [
+            "string",
+            "number"
+          ]
+        },
+        "label": {
+          "type": "string"
+        }
+      }
+    },
+    "watches": {
+      "type": "object",
+      "properties": {
+        "characters": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/item"
+          }
+        },
+        "locations": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/item"
+          }
+        }
+      }
+    }
+  }
+}

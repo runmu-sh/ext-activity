@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Activity.Role",
+  "type": "object",
+  "required": [
+    "allowed"
+  ],
+  "properties": {
+    "allowed": {
+      "type": "boolean"
+    },
+    "can_puppet": {
+      "type": "boolean"
+    }
+  },
+  "$defs": {}
+}

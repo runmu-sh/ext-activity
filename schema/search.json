@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Activity.Search",
+  "type": "object",
+  "required": [
+    "query"
+  ],
+  "properties": {
+    "req": {
+      "type": "number"
+    },
+    "query": {
+      "type": "string"
+    }
+  },
+  "$defs": {}
+}

@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Client.Puppets.Add (sent for Puppets 1.1, which has no add())",
+  "type": "object",
+  "required": [
+    "npc_id"
+  ],
+  "properties": {
+    "npc_id": {
+      "type": [
+        "string",
+        "number"
+      ]
+    }
+  }
+}
